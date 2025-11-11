@@ -1,0 +1,393 @@
+body {
+  margin: 0;
+  font-family: 'Helvetica Neue', sans-serif;
+  background-color: black;
+  color: white;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  position: relative; /* Чтобы позиционировать навигацию и бургер относительно header */
+  z-index: 10000; /* Чтобы бургер и меню были сверху */
+}
+
+header h1 {
+  font-size: 24px;
+}
+
+header h1 small {
+  display: block;
+  font-size: 14px;
+  font-weight: 300;
+}
+
+nav a {
+  color: white;
+  margin-left: 30px;
+  text-decoration: none;
+  font-weight: 300;
+}
+
+nav a.active {
+  font-weight: bold;
+}
+
+main {
+  padding: 40px;
+  max-width: 800px;
+  margin: auto;
+}
+
+main h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 36px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.horizontal-row {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  max-width: 1140px;
+  width: 100%;
+  flex-wrap: nowrap; /* Запретить перенос */
+}
+
+.horizontal {
+  flex: 0 0 560px; /* фиксированная ширина */
+  height: 315px;
+  aspect-ratio: 16 / 9;
+  max-width: none; /* чтобы max-width: 100% не мешал */
+}
+
+.vertical-row {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  max-width: 1140px;
+  width: 100%;
+  flex-wrap: nowrap; /* тоже запретим перенос */
+}
+
+.vertical {
+  flex: 0 0 calc((1140px - 40px) / 3);
+  height: 570px;
+  aspect-ratio: 9 / 16;
+  max-width: none;
+}
+
+.horizontal-row:not(:last-child),
+.vertical-row:not(:last-child) {
+  margin-bottom: 30px; /* Можно изменить отступ под себя */
+}
+
+/* Стили для бургер-меню */
+.burger {
+  display: none; /* скрываем по умолчанию */
+  flex-direction: column;
+  justify-content: space-around;
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+  z-index: 10001;
+}
+
+.burger div {
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* Анимация для активного состояния бургера */
+.burger.active div:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.burger.active div:nth-child(2) {
+  opacity: 0;
+}
+
+.burger.active div:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+.photo-gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: center; /* Центрирует все строки */
+}
+
+/* Одинаковая ширина для всех строк */
+.photo-row {
+  display: flex;
+  justify-content: center; /* заменили с space-between */
+  gap: 20px;
+  width: 100%;
+  max-width: 1000px;
+}
+
+/* Общее для всех фото */
+.photo {
+  display: block;
+  height: auto;
+  border-radius: 10px;
+  width: 100%;
+}
+
+/* Делим пространство между фото */
+/* 2 фото → 50% - половина от gap */
+.horizontal-photo-row .photo {
+  width: calc(50% - 10px);
+}
+
+/* 3 фото → треть ширины строки */
+.vertical-photo-row .photo {
+  width: calc(33.333% - 13.333px);
+}
+
+.about-section {
+  padding: 40px 20px;
+  background-color: black;
+  color: white;
+  display: flex;
+  justify-content: center;
+}
+
+.about-content {
+  display: flex;
+  gap: 40px;
+  max-width: 1000px;
+  width: 100%;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* Обеспечить, чтобы текст и фото занимали примерно по половине (или подстраиваться) */
+.about-text, .about-photo {
+  flex: 1 1 45%; /* примерно 2 колонки с отступами */
+  min-width: 280px; /* чтобы не слишком уж сжималось */
+  box-sizing: border-box;
+}
+
+/* Если внутри .about-text есть .social-links, ограничим его ширину */
+.about-text .social-links {
+  max-width: 100%;
+  flex-wrap: wrap;
+}
+
+.about-text h2 {
+  font-size: 28px;
+  margin-bottom: 15px;
+}
+
+.about-text p {
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.about-photo {
+  flex: 1 1 300px;
+  display: flex;
+  justify-content: center;
+}
+
+.about-photo img {
+  width: 100%;
+  max-width: 300px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+/* ====== Стили для социальных ссылок ====== */
+.social-links {
+  display: flex;
+  gap: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.social-links a {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 16px;
+  background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(37, 117, 252, 0.4);
+  transition: background 0.3s ease, transform 0.2s ease;
+  user-select: none;
+}
+
+.social-links a:hover,
+.social-links a:focus {
+  background: linear-gradient(135deg, #2575fc 0%, #6a11cb 100%);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(37, 117, 252, 0.6);
+  outline: none;
+}
+
+/* Иконки перед ссылками через emoji */
+.social-links a[href^="mailto"]::before {
+  content: "📧";
+  margin-right: 8px;
+}
+
+.social-links a[href*="t.me"]::before {
+  content: "✈️";
+  margin-right: 8px;
+}
+
+.social-links a[href*="linkedin.com"]::before {
+  content: "💼";
+  margin-right: 8px;
+}
+
+.social-links a[download]::before {
+  content: "📄";
+  margin-right: 8px;
+}
+
+/* ====== Адаптив ====== */
+@media (max-width: 768px) {
+  header {
+    padding: 10px 20px;
+  }
+
+  nav {
+    flex-direction: column;
+    background-color: black;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    width: 200px;
+    border: 1px solid #444;
+    padding: 10px;
+    border-radius: 5px;
+    z-index: 10000;
+
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, opacity 0.3s ease;
+    display: flex;
+  }
+
+  nav.active {
+    max-height: 500px;
+    opacity: 1;
+  }
+
+  nav a {
+    margin: 10px 0;
+    font-size: 18px;
+    padding: 8px;
+  }
+
+  .burger {
+    display: flex !important;
+  }
+
+  /* Видео */
+  .horizontal-row,
+  .vertical-row {
+    max-width: 100%;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    padding: 0 15px;
+  }
+
+  .horizontal,
+  .vertical {
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: auto !important;
+    max-height: 300px; /* ограничим максимальную высоту для мобильных */
+  }
+
+  .horizontal-row:not(:last-child),
+  .vertical-row:not(:last-child) {
+    margin-bottom: 20px; /* чуть поменьше отступ на мобильных */
+  }
+
+  .photo-row {
+    flex-direction: column;
+    gap: 15px;
+    max-width: 100%;
+  }
+
+  .photo {
+    width: 100% !important;
+    max-width: 100%;
+  }
+
+  main {
+    padding: 20px 10px;
+    max-width: 100%;
+  }
+
+  main h1 {
+    font-size: 28px;
+    margin-bottom: 15px;
+  }
+
+  /* ====== Внесены правки для удобства about на мобилках ====== */
+  .about-content {
+    flex-direction: column;
+    text-align: center;
+    padding: 0 15px;
+  }
+
+  .about-text, .about-photo {
+    flex: 1 1 100%;
+    min-width: auto;
+  }
+
+  .about-text h2 {
+    font-size: 24px;
+  }
+
+  .about-text p {
+    font-size: 18px;
+    line-height: 1.8;
+    margin-bottom: 25px;
+    padding: 0 10px;
+  }
+
+  .about-photo {
+    margin-top: 20px;
+    justify-content: center;
+  }
+
+  .about-photo img {
+    max-width: 90vw;
+    height: auto;
+    border-radius: 12px;
+  }
+
+  .social-links {
+    flex-direction: column;
+    gap: 15px;
+    padding: 0 10px;
+  }
+
+  .social-links a {
+    display: block;
+    margin: 0 auto;
+    max-width: 300px;
+    padding: 14px 24px;
+    font-size: 18px;
+    border-radius: 10px;
+    box-shadow: 0 6px 25px rgba(37, 117, 252, 0.6);
+    user-select: auto;
+  }
+}
