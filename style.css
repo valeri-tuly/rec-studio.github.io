@@ -12,6 +12,7 @@ main {
 }
 
 main h1 {
+  color: #091F5B; /* цвет текста */
   font-size: 36px;
   font-weight: 600;
   margin-bottom: 20px;
