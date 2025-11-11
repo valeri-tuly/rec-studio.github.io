@@ -10,44 +10,42 @@ body {
 
 /* Общие стили для секций */
 .section {
-  display: flex;
-  flex-wrap: wrap;
   padding: 50px 10%;
-  align-items: flex-start;
 }
 
+/* Текст */
 .text {
-  flex: 1 1 50%;
-  padding-right: 20px;
+  margin-bottom: 30px;
 }
 
-.video-container {
-  flex: 1 1 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+h1 {
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 2.5rem;
+  line-height: 1.2;
+  margin: 0 0 20px 0;
 }
 
-.video-container iframe {
-  width: 100%;
-  max-width: 500px;
-  aspect-ratio: 16/9;
-  border-radius: 8px;
-  border: none;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+h1 span.video-word {
+  font-family: "DM Serif Display", serif;
+  font-weight: 400;
+  font-style: italic;
 }
 
-.video-container iframe:hover {
-  transform: scale(1.02);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+p {
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 1.3;
+  font-family: "Inter", sans-serif;
+  margin: 1em 0;
 }
 
-/* Галерея видео */
+/* Галерея */
 .gallery {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px;
-  margin-top: 30px;
 }
 
 .gallery iframe {
@@ -94,48 +92,14 @@ body {
   color: #F7F2EC;
 }
 
-/* Заголовки h1 */
-h1 {
-  font-family: "Inter", sans-serif;
-  font-weight: 600;
-  font-style: normal;
-  font-size: 2.5rem;
-  line-height: 1.2;
-  margin: 0 0 20px 0;
-}
-
-/* Слово "Video" в заголовках */
-h1 span.video-word {
-  font-family: "DM Serif Display", serif;
-  font-weight: 400;
-  font-style: italic;
-}
-
-/* Параграфы как h2 */
-p {
-  font-size: 2rem;       /* размер как h2 */
-  font-weight: 600;      /* вес как h2 */
-  line-height: 1.3;
-  font-family: "Inter", sans-serif;
-  margin: 1em 0;
-}
-
-/* Адаптив для мобильных устройств */
+/* Адаптив */
 @media (max-width: 768px) {
   .section {
-    flex-direction: column;
     padding: 30px 5%;
   }
-  .text, .video-container {
-    flex: 1 1 100%;
-    padding: 0;
-  }
   .gallery {
-    grid-template-columns: 1fr; /* одно видео в строке */
+    grid-template-columns: 1fr;
     gap: 15px;
-  }
-  .gallery iframe {
-    aspect-ratio: 16/9;
   }
 }
 
