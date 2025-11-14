@@ -110,16 +110,21 @@
     ];
 
     videos.forEach(v => {
-      videojs(v.id, {
+      const player = videojs(v.id, {
         techOrder: ["youtube"],
         controls: true,
         autoplay: false,
         youtube: {
-          videoId: v.videoId,
           modestbranding: true,
           rel: 0,
           origin: window.location.origin
         }
+      });
+
+      // Загружаем видео через src()
+      player.src({
+        type: "youtube",
+        src: v.videoId
       });
     });
   </script>
