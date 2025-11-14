@@ -50,7 +50,7 @@ body {
 h1 {
   font-family: "Inter", sans-serif;
   font-weight: 600;
-  font-size: 2.5rem; /* можно корректировать */
+  font-size: 3rem; /* можно корректировать */
   margin: 0;
 }
 
@@ -65,7 +65,7 @@ h1 span.video-word {
 p {
   font-family: "Inter", sans-serif;
   font-weight: 500; /* Medium */
-  font-size: 40px;
+  font-size: 2rem;
   line-height: 1.3;
   margin: 0;
 }
