@@ -70,13 +70,13 @@ p {
   flex-wrap: wrap;
 }
 
-/* Видео плееры с aspect ratio 9:16 */
+/* Видео плееры вертикальные 9:16 */
 .gallery video {
   flex: 1 1 calc((100% - 40px) / 3); /* три видео в ряд */
   aspect-ratio: 9 / 16; /* портретное видео */
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  object-fit: cover;
+  object-fit: cover; /* вертикальное видео заполнит контейнер */
 }
 
 /* Адаптив */
