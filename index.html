@@ -92,21 +92,21 @@
 
   <script>
     const videos = [
-      {id: 'video1', src: 'https://www.youtube.com/watch?v=4yd1rUzLM3Q'},
-      {id: 'video2', src: 'https://www.youtube.com/watch?v=bRf_rv6eb2k'},
-      {id: 'video3', src: 'https://www.youtube.com/watch?v=GMnO-YdWAAw'},
-      {id: 'video4', src: 'https://www.youtube.com/watch?v=NRMCnML6em8'},
-      {id: 'video5', src: 'https://www.youtube.com/watch?v=l2DAuRU1xKE'},
-      {id: 'video6', src: 'https://www.youtube.com/watch?v=pSZsEmkhUEI'},
-      {id: 'video7', src: 'https://www.youtube.com/watch?v=x3_mxHNcWck'},
-      {id: 'video8', src: 'https://www.youtube.com/watch?v=MrmOT-uk3rU'},
-      {id: 'video9', src: 'https://www.youtube.com/watch?v=BIlUadUuXeo'},
-      {id: 'video10', src: 'https://www.youtube.com/watch?v=IjooXWYf3ss'},
-      {id: 'video11', src: 'https://www.youtube.com/watch?v=cs_SECCH8No'},
-      {id: 'video12', src: 'https://www.youtube.com/watch?v=eGFrNdN7_h8'},
-      {id: 'video13', src: 'https://www.youtube.com/watch?v=QcjiMKhD2o4'},
-      {id: 'video14', src: 'https://www.youtube.com/watch?v=hybouEe08z8'},
-      {id: 'video15', src: 'https://www.youtube.com/watch?v=rNVtky-QmpA'}
+      {id: 'video1', src: '4yd1rUzLM3Q'},
+      {id: 'video2', src: 'bRf_rv6eb2k'},
+      {id: 'video3', src: 'GMnO-YdWAAw'},
+      {id: 'video4', src: 'NRMCnML6em8'},
+      {id: 'video5', src: 'l2DAuRU1xKE'},
+      {id: 'video6', src: 'pSZsEmkhUEI'},
+      {id: 'video7', src: 'x3_mxHNcWck'},
+      {id: 'video8', src: 'MrmOT-uk3rU'},
+      {id: 'video9', src: 'BIlUadUuXeo'},
+      {id: 'video10', src: 'IjooXWYf3ss'},
+      {id: 'video11', src: 'cs_SECCH8No'},
+      {id: 'video12', src: 'eGFrNdN7_h8'},
+      {id: 'video13', src: 'QcjiMKhD2o4'},
+      {id: 'video14', src: 'hybouEe08z8'},
+      {id: 'video15', src: 'rNVtky-QmpA'}
     ];
 
     videos.forEach(video => {
@@ -121,7 +121,7 @@
         autoplay: false
       });
 
-      player.src({ type: "youtube", src: video.src });
+      player.src({ type: "youtube", src: video.src }); // только ID видео
     });
   </script>
 
