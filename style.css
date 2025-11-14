@@ -85,7 +85,7 @@ p {
 }
 
 /* Адаптив */
-@media (max-width: 1200px) {
+@media (max-width: 1600px) {
   .video-wrapper {
     flex: 1 1 calc((100% - 20px)/2); /* два видео в ряд */
     max-width: calc((100% - 20px)/2);
