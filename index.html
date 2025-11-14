@@ -88,16 +88,11 @@ document.addEventListener("DOMContentLoaded", function() {
     const gallery = section.querySelector('.gallery');
 
     videos.forEach(src => {
-      const wrapper = document.createElement('div');
-      wrapper.className = 'video-wrapper';
-
       const videoEl = document.createElement('video');
       videoEl.className = 'video-js';
       videoEl.setAttribute('controls', '');
       videoEl.setAttribute('muted', '');
-
-      wrapper.appendChild(videoEl);
-      gallery.appendChild(wrapper);
+      gallery.appendChild(videoEl);
 
       const player = videojs(videoEl, {
         techOrder: ['youtube'],
