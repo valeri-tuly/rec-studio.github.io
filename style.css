@@ -1,20 +1,20 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@1&family=Inter:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@1&family=Inter:wght@400;600&display=swap'); 
 
 html, body {
   margin: 0;
   padding: 0;
   font-family: "Inter", sans-serif;
   line-height: 1.6;
-  background: transparent; /* чтобы не появлялся белый фон за секциями */
+  background: transparent; /* фон за секциями прозрачный */
 }
 
 /* Контейнер для центрирования контента */
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 20px; /* внутренние отступы */
+  padding: 0 20px;
   box-sizing: border-box;
-  background: none; /* фон секции должен быть виден */
+  background: none;
 }
 
 /* Секции на всю ширину */
@@ -27,7 +27,7 @@ html, body {
   box-sizing: border-box;
 }
 
-/* Цвета секций на всю ширину */
+/* Цвета секций */
 .section:nth-child(1) { background-color: #F7F2EC; color: #091F5B; }
 .section:nth-child(2) { background-color: #344EAD; color: #F7F2EC; }
 .section:nth-child(3) { background-color: #F2F1DF; color: #091F5B; }
@@ -47,13 +47,15 @@ html, body {
   flex: 1 1 55%;
   display: flex;
   gap: 20px;
-  flex-wrap: nowrap;
-  overflow-x: auto;
+  flex-wrap: wrap; /* перенос видео на следующую строку */
+  overflow-x: hidden; /* убираем горизонтальный скролл */
+  justify-content: center;
 }
 
 /* Видео */
 .gallery video {
-  flex: 0 0 calc((100% - 40px) / 3);
+  flex: 1 1 calc(33% - 20px); /* три видео на ряд */
+  max-width: 100%;
   height: auto;
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
@@ -84,7 +86,7 @@ p {
 /* Адаптив */
 @media (max-width: 1024px) {
   .gallery video {
-    flex: 0 0 300px;
+    flex: 1 1 45%; /* два видео на ряд */
   }
 }
 
@@ -96,14 +98,13 @@ p {
   .text, .gallery {
     flex: 1 1 100%;
     padding: 0;
-    text-align: left; /* на мобильных лучше слева */
+    text-align: left; /* на мобильных слева */
   }
   .gallery {
     flex-wrap: wrap;
   }
   .gallery video {
-    flex: 1 1 100%;
-    max-width: 100%;
+    flex: 1 1 100%; /* одно видео на ряд */
   }
   h1 {
     font-size: 2rem;
