@@ -73,8 +73,8 @@ p {
 /* Контейнер для видео с 9:16 */
 .video-wrapper {
   position: relative;
-  width: 321px; /* ширина десктоп */
-  padding-top: calc(321px * 16 / 9); /* высота по aspect ratio 9:16 */
+  flex: 1 1 calc((100% - 40px) / 3); /* 3 видео в ряд с gap 20px */
+  padding-top: calc(((100% - 40px) / 3) * 16 / 9); /* высота по aspect ratio 9:16 */
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   overflow: hidden;
