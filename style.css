@@ -34,9 +34,13 @@ header {
   box-sizing: border-box;
 }
 
-.logo {
-  font-weight: 700;
-  font-size: 1.8rem;
+.logo img {
+  height: 50px; /* или нужная высота */
+}
+
+.contact-social .social-icon {
+  width: 32px;
+  height: 32px;
 }
 
 .nav-links {
