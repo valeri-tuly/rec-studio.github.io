@@ -5,42 +5,47 @@ body {
   margin: 0;
   padding: 0;
   line-height: 1.6;
-  background-color: #fff;
 }
 
-/* Контейнер секции */
-.section {
+/* Контейнер для центрирования и ограничения ширины */
+.container {
   max-width: 1200px;
-  margin: 0 auto; /* центрируем */
-  display: flex;
-  flex-wrap: wrap;
-  padding: 50px 20px;
-  align-items: flex-start;
+  margin: 0 auto;
+  padding: 0 20px;
+  box-sizing: border-box;
 }
 
+/* Секции */
+.section {
+  display: flex;
+  justify-content: center;
+  padding: 50px 0;
+  flex-wrap: wrap;
+}
+
+/* Текст и галерея */
 .text {
-  flex: 1 1 50%;
+  flex: 1 1 40%;
+  min-width: 280px;
   padding-right: 20px;
-  box-sizing: border-box;
 }
 
 .gallery {
-  flex: 1 1 50%;
-  display: flex;
+  flex: 1 1 55%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px;
-  flex-wrap: nowrap; /* все видео в одну линию на десктопе */
-  overflow-x: auto; /* если видео не помещаются, добавляется скролл */
-  box-sizing: border-box;
 }
 
 /* Видео */
 .gallery video {
-  flex: 0 0 auto;
-  width: calc((100% - 40px) / 3); /* 3 видео в ряд, gap = 20px */
-  height: 180px;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
-/* Цвета секций */
+/* Цвета секций (сохраняем твои) */
 .section:nth-child(1) { background-color: #F7F2EC; color: #091F5B; }
 .section:nth-child(2) { background-color: #344EAD; color: #F7F2EC; }
 .section:nth-child(3) { background-color: #F2F1DF; color: #091F5B; }
@@ -73,30 +78,19 @@ p {
 @media (max-width: 768px) {
   .section {
     flex-direction: column;
-    padding: 30px 20px;
+    padding: 30px 0;
   }
-
-  .text,
-  .gallery {
+  .text, .gallery {
     flex: 1 1 100%;
     padding: 0;
   }
-
   .gallery {
-    flex-wrap: wrap; /* видео в колонку */
-    gap: 15px;
+    grid-template-columns: 1fr;
   }
-
-  .gallery video {
-    width: 100%;
-    height: auto;
+  h1 {
+    font-size: 2rem;
   }
-
   p {
     font-size: 1rem;
-    text-align: justify;
-    text-justify: inter-word;
-    widows: 2;
-    orphans: 2;
   }
 }
