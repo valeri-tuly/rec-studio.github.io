@@ -79,32 +79,25 @@
     </div>
   </div>
 
-  <!-- Инициализация Video.js с управлением одним видео -->
+  <!-- Video.js Initialization -->
   <script>
     document.addEventListener("DOMContentLoaded", function() {
       const allPlayers = [];
       document.querySelectorAll('.section').forEach(section => {
         const videos = JSON.parse(section.dataset.videos);
         const gallery = section.querySelector('.gallery');
-
         videos.forEach(src => {
           const videoEl = document.createElement('video');
           videoEl.className = 'video-js';
-          videoEl.setAttribute('width', '640');
-          videoEl.setAttribute('height', '360');
           videoEl.setAttribute('controls', '');
           videoEl.setAttribute('muted', '');
           gallery.appendChild(videoEl);
-
           const player = videojs(videoEl, {
             techOrder: ['youtube'],
             youtube: { ytControls: 2 },
             sources: [{ type: 'video/youtube', src }]
           });
-
           allPlayers.push(player);
-
-          // Если одно видео играет — пауза для остальных
           player.on('play', () => {
             allPlayers.forEach(p => { if (p !== player) p.pause(); });
           });
