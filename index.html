@@ -69,9 +69,11 @@
     <div class="gallery"></div>
   </div>
 
-  <!-- Инициализация Video.js через JS -->
+  <!-- Инициализация Video.js с управлением одним видео -->
   <script>
     document.addEventListener("DOMContentLoaded", function() {
+      const allPlayers = [];
+
       document.querySelectorAll('.section').forEach(section => {
         const videos = JSON.parse(section.dataset.videos);
         const gallery = section.querySelector('.gallery');
@@ -85,11 +87,21 @@
           videoEl.setAttribute('muted', '');
           gallery.appendChild(videoEl);
 
-          videojs(videoEl, {
+          const player = videojs(videoEl, {
             techOrder: ['youtube'],
-            autoplay: true,
             youtube: { ytControls: 2 },
             sources: [{ type: 'video/youtube', src }]
+          });
+
+          allPlayers.push(player);
+
+          // Событие: если это видео играет — ставим на паузу все остальные
+          player.on('play', () => {
+            allPlayers.forEach(p => {
+              if (p !== player) {
+                p.pause();
+              }
+            });
           });
         });
       });
