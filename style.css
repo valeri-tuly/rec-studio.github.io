@@ -263,7 +263,7 @@ p {
 /* Кнопка */
 .hero-btn {
   position: absolute; /* привязка к .hero */
-  top: 81.7%;
+  top: 75.7%;
   left: 47.4%;
   transform: translate(-50%, -50%);
   padding: 0.75rem 1.75rem;
