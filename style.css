@@ -242,37 +242,32 @@ p {
 /* ===========================
    HERO
    =========================== */
+/* Hero секция */
 .hero {
   position: relative;
   width: 100%;
-  min-height: 100vh;           /* Высота секции минимум на экран */
-  background-color: #F7F2EC;   /* основной фон */
+  min-height: 100vh;          /* высота на весь экран */
+  background-color: #F7F2EC;  /* основной фон */
+  overflow: visible;          /* чтобы PNG мог "налезать" на следующую секцию */
 }
 
-.hero-container {
-  position: relative;
-  width: 90%;                  /* уменьшаем фото на 10% */
-  max-width: 100%;
-  margin: 0;
-}
-
+/* Изображение */
 .hero-image {
-  display: block;
-  width: 100%;                 /* уменьшаем фото на 10% за счет контейнера */
-  height: auto;                /* сохраняем пропорции, не обрезаем */
-  object-fit: none;            /* чтобы не обрезалось */
-  position: absolute;           /* для наложения */
-  top: 0;
-  left: 0;
+  position: absolute;         /* точно позиционируем на секции */
+  top: 0;                     /* верхний край */
+  left: 0;                    /* левый край */
+  width: 90%;                 /* уменьшаем размер на 10% */
+  height: auto;               /* сохраняем пропорции */
   z-index: 1;
 }
 
-/* Нижняя "вторая секция" */
+/* Следующая секция */
 .section-next {
-  background-color: #F2F1DF;
-  height: 10rem;               /* пример высоты полосы / нижней секции */
-  margin-top: -10%;            /* чтобы hero визуально заходил на следующую секцию */
+  background-color: #344EAD;
+  height: 10rem;             /* пример высоты */
+  margin-top: -10%;          /* фото визуально накладывается на секцию */
 }
+
 /* Адаптив */
 @media (max-width: 768px) {
   .hero {
