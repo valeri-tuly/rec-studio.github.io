@@ -286,7 +286,7 @@ p {
   left: 0;
   width: 100%;
   height: 10%;           /* высота полоски */
-  background-color: #344EAD;
+  background-color: #F2F1DF;
   z-index: 0;            /* под картинкой */
 }
 
