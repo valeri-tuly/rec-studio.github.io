@@ -341,7 +341,7 @@ p {
     .hero-btn {
         position: absolute;
         z-index: 10;
-        left: 50%;
+        left: 55%;
         top: 55%;
         transform: translate(-50%, -50%);
     }
