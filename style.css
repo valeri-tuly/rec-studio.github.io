@@ -291,23 +291,16 @@ p {
 }
 
 @media (max-width: 768px) {
+  /* Сделаем кнопку абсолютной относительно изображения */
+  .hero-image {
+    position: relative; /* теперь кнопка привяжется к этой картинке */
+    display: block;     /* чтобы позиционирование работало корректно */
+  }
+
   .hero-btn {
-    top: 498px;   /* отступ сверху */
-    left: 266px;  /* отступ слева */
-    transform: none; /* убираем смещение, так как указаны точные пиксели */
-  }
-}
-
-
-/* Адаптив */
-@media (max-width: 768px) {
-  .hero {
-    height: auto;
-    padding: 5rem 0;
-  }
-
-  .hero-title,
-  .hero-title .hero-accent {
-    font-size: 2.5rem;
+    position: absolute; /* относительная позиция к картинке */
+    top: 498px;         /* координаты для мобильной версии */
+    left: 266px;
+    transform: none;    /* убираем смещение */
   }
 }
